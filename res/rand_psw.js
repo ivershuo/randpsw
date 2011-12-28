@@ -3,18 +3,20 @@ var salt = '';
 function pswEl(){
     var pswElQuery = document.querySelectorAll('input[type="password"]');
     if(pswElQuery.length < 1){
-        return pswEl.length;
+        return false;
     }
     return pswElQuery;
 }
 
 function rand_psw(){
-    var domain = window.location.hostname.match(/\w+\.\w+$|\w+$|(\d{1,3}\.?){4}$/)[0].toLowerCase();
+    var domain = window.location.hostname.match(/\w+\.\w+$|\w+$|(\d{1,3}\.){3}\d{1,3}$/)[0].toLowerCase();
     var pswEl = document.querySelectorAll('input[type="password"]');
-    function pswSec(v){
-        var l = Math.min(v.length, 32),
-            start = Math.min((v.match(/\d/)||0)[0]|0, 32 - l);            
-        var randPsw = hex_md5(v + domain + salt).substr(start, l);
+    function pswSec(v){        
+        var randPsw = parseInt(hex_md5(v + domain + salt), 16).toString(36),
+            randPswLength = randPsw.length;
+        var l = Math.min(v.length, randPswLength),
+            start = Math.min((v.match(/\d/)||0)[0]|0, randPswLength - l);
+        randPsw = randPsw.substr(start, l);
         var pswArr = v.match(/./g),
             randPswArr = Array.prototype.slice.call(randPsw, 0);
         for(var i = 0; i < l; i++){
