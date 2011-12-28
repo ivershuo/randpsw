@@ -29,7 +29,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, tabObj, tabInfo){
         if(response.hasPsw){
             tabsId.push(tabId);
             chrome.pageAction.show(tabId);
-            loadPswJs('md5', function(response){                
+            loadPswJs('md5', function(response){
             });
         }
     });    

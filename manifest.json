@@ -7,9 +7,9 @@
     "tabs", "*://*/*"
   ],
   "icons": {
-    "16": "res/lock.png",             
-    "48": "res/lock.png",            
-    "128": "res/lock.png" 
+    "16": "res/icon_16.png",             
+    "48": "res/icon_48.png",            
+    "128": "res/icon_128.png" 
   },  
   "page_action": {
     "default_icon": "res/open.png"
