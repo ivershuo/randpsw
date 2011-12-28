@@ -1,0 +1,18 @@
+{
+  "name" : "RandPsw",
+  "version" : "0.9",  
+  "description" : "Random your password.",
+  "background_page" : "background.html",
+  "permissions" : [
+    "tabs", "*://*/*"
+  ],
+  "icons": {
+    "16": "res/lock.png",             
+    "48": "res/lock.png",            
+    "128": "res/lock.png" 
+  },  
+  "page_action": {
+    "default_icon": "res/open.png"
+  },
+  "options_page": "options.html"
+}
