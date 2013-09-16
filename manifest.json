@@ -1,18 +1,36 @@
 {
-  "name" : "RandPsw",
-  "version" : "0.9",  
-  "description" : "Random your password.",
-  "background_page" : "background.html",
-  "permissions" : [
-    "tabs", "*://*/*"
-  ],
-  "icons": {
-    "16": "res/icon_16.png",             
-    "48": "res/icon_48.png",            
-    "128": "res/icon_128.png" 
-  },  
-  "page_action": {
-    "default_icon": "res/open.png"
-  },
-  "options_page": "options.html"
+    "manifest_version" : 2,
+    "name" : "RandPsw",
+    "version" : "1.0",  
+    "description" : "Random your password.",
+    "icons" : {
+        "16"  : "imgs/icon_16.png",
+        "48"  : "imgs/icon_48.png",
+        "128" : "imgs/icon_128.png"
+    },
+    "page_action" : {
+        "default_icon" : "imgs/open.png"
+    },
+    "background" : {
+        "scripts" : [
+            "inc/when.js",
+            "inc/md5.js",
+            "inc/randpsw.js",
+            "background.js"
+        ]
+    },   
+    "content_scripts" : [
+        {
+            "matches"    : ["<all_urls>"],
+            "js"         : [
+                "inc/when.js",
+                "page.js"
+            ],
+            "all_frames" : true
+        }
+    ],
+    "options_page": "options.html",
+    "permissions" : [
+        "tabs"
+    ]
 }
