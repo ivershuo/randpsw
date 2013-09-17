@@ -97,7 +97,7 @@
 			this.updateDomainMap();
 		},
 		getDomainMap : function(sender, cb){
-			cb(localData.get(LOCAL_DOMAINMAP_KEY));
+			cb(domainMap);
 		}
 	};
 
