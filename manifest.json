@@ -29,7 +29,10 @@
             "all_frames" : true
         }
     ],
-    "options_page": "options.html",
+    "options_ui": {
+        "page": "options.html",
+        "browser_style": true
+      },
     "permissions" : [
     ]
 }

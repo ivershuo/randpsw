@@ -27,7 +27,8 @@
 	function checkIsPswEl(el){
 		if(el.nodeType == 1 
 			&& el.tagName.toLowerCase() == 'input' 
-			&& el.getAttribute('type') == 'password'
+			&& el.getAttribute('type')
+			&& el.getAttribute('type').toLowerCase() == 'password'
 		){ return true; }
 	}
 
