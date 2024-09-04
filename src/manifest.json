@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "RandPsw",
+  "version": "2.0.0",
+  "description": "Random your password.",
+  "icons": {
+    "16": "imgs/icon_16.png",
+    "48": "imgs/icon_48.png",
+    "128": "imgs/icon_128.png"
+  },
+  "background": {
+    "service_worker": "service_worker.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "page.js",
+        "page.css"
+      ],
+      "all_frames": true
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
+  "action": {
+    "default_icon": "imgs/open.png"
+  },
+  "content_security_policy": {}
+}
