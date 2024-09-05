@@ -8,7 +8,7 @@ export function getDomain(uri){
     const fullUri = uri.startsWith('http') ? uri : `http://${uri}`
     const url = new URL(fullUri)
     const match = url.hostname.toLowerCase().match(domainRegex)
-    return match ? match[0] : ''
+    return match ? match[0].toLowerCase() : ''
   } catch (e) {
     return ''
   }
@@ -37,20 +37,32 @@ export const HostMap = (()=>{
   }
 
   return {
+    async save(data){
+      const clearData = {}
+      for (const key in data) {
+        clearData[getDomain(key)] = getDomain(data[key])
+      }
+      return chrome.storage.local.set({
+        [hostMapStorageKey]: clearData,
+       })
+    },
     async add(host, map2host){
       const data = await getData()
-      data[host] = map2host
+      data[getDomain(host)] = getDomain(map2host)
       return chrome.storage.local.set({
         [hostMapStorageKey]: data,
       })
     },
     async get(host){
       const data = await getData()
-      return data[host]
+      if(host){
+        return data[getDomain(host)] || getDomain(host)
+      }
+      return data
     },
     async remove(host){
       const data = await getData()
-      delete data[host]
+      delete data[getDomain(host)]
       return chrome.storage.local.set({
         [hostMapStorageKey]: data,
       })

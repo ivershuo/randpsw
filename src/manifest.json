@@ -28,8 +28,8 @@
     }
   ],
   "options_ui": {
-    "page": "options.html",
-    "browser_style": true
+    "page": "options/options.html",
+    "open_in_tab": false
   },
   "action": {
     "default_icon": "imgs/open.png"

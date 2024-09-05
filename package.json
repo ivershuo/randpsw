@@ -4,20 +4,24 @@
   "description": "= Random your password =",
   "type": "module",
   "scripts": {
-    "start": "parcel watch src/manifest.json --host localhost --config @parcel/config-webextension",
-    "build": "parcel build src/manifest.json --config @parcel/config-webextension"
+    "start": "parcel watch src/manifest.json src/options/options.html --host localhost",
+    "build": "parcel build src/manifest.json src/options/options.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@parcel/config-webextension": "^2.12.0",
+    "@parcel/transformer-vue": "^2.12.0",
+    "naive-ui": "^2.39.0",
     "parcel": "^2.12.0",
-    "path-browserify": "^1.0.1"
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10"
   },
   "dependencies": {
     "crypto-js": "^4.2.0",
     "install": "^0.13.0",
-    "npm": "^10.8.3"
+    "npm": "^10.8.3",
+    "vue": "^3.5.1"
   }
 }
