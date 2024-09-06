@@ -7,7 +7,7 @@
     </template>
     <span>Copied!</span>
   </n-tooltip>
-  <textarea ref="textarea"></textarea>
+  <textarea ref="textarea" style="position: absolute;top: -999px;left: -9999px;"></textarea>
 </template>
 <script setup>
 import { ref } from 'vue'
@@ -41,11 +41,3 @@ export default {
   inheritAttrs: false
 }
 </script>
-
-<style scoped>
-textarea {
-  position: absolute;
-  top: -999px;
-  left: -9999px;
-}
-</style>

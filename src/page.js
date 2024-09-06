@@ -53,12 +53,8 @@ document.addEventListener('dblclick', genpsw)
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   const {act, data} = request
-  switch (act) {
-    case 'toggle-psw-show':
-      toggleShowPassword()
-      sendResponse(showPassword)
-      break
-    default:
-      console.log('未知的消息')
+  if(act === 'toggle-psw-show'){
+    toggleShowPassword()
+    sendResponse(showPassword)
   }
 })

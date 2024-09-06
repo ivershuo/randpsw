@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel watch src/manifest.json src/options/options.html --host localhost",
     "autobuild": "parcel watch src/manifest.json src/options/options.html --host localhost --no-hmr",
-    "build": "parcel build src/manifest.json src/options/options.html"
+    "build": "parcel build src/manifest.json src/options/options.html --no-source-maps"
   },
   "keywords": [],
   "author": "",
