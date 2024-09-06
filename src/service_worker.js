@@ -5,7 +5,6 @@ import iconOpen from './imgs/open.png'
 
 chrome.action.onClicked.addListener(tab =>{
   const {id, active, selected, status} = tab
-  console.log('tab', tab)
   if (active && selected && status === 'complete') {
     chrome.tabs.sendMessage(id, {act: 'toggle-psw-show'}, {}, show => {
       chrome.action.setIcon({path: show? iconOpen : iconLock, tabId: id})

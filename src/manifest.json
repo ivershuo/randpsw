@@ -21,8 +21,7 @@
         "<all_urls>"
       ],
       "js": [
-        "page.js",
-        "page.css"
+        "page.js"
       ],
       "all_frames": true
     }
@@ -32,7 +31,7 @@
     "open_in_tab": false
   },
   "action": {
-    "default_icon": "imgs/open.png"
+    "default_icon": "imgs/lock.png"
   },
   "content_security_policy": {}
 }
