@@ -22,7 +22,7 @@ export const Salt = {
   },
   async get(){
     const result = await chrome.storage.sync.get('salt')
-    return result?.salt
+    return result?.salt || ''
   },
   async remove(){
     return chrome.storage.sync.remove('salt')
