@@ -10,6 +10,7 @@ export function getDomain(uri){
     const match = url.hostname.toLowerCase().match(domainRegex)
     return match ? match[0].toLowerCase() : ''
   } catch (e) {
+    console.log(e)
     return ''
   }
 }

@@ -6,11 +6,14 @@
   "scripts": {
     "start": "parcel watch src/manifest.json src/options/options.html --host localhost",
     "autobuild": "parcel watch src/manifest.json src/options/options.html --host localhost --no-hmr",
-    "build": "parcel build src/manifest.json src/options/options.html --no-source-maps"
+    "build": "parcel build src/manifest.json src/options/options.html --no-source-maps",
+    "devweb": "parcel web/index.html --dist-dir web-dist -p 8012",
+    "buildweb": "parcel build web/index.html --dist-dir web-dist --no-source-maps",
+    "clear": "rm -rf .parcel-cache dist web-dist"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@parcel/config-webextension": "^2.12.0",
     "@parcel/transformer-vue": "^2.12.0",
