@@ -6,9 +6,9 @@
   "scripts": {
     "start": "parcel watch src/manifest.json src/options/options.html --host localhost",
     "autobuild": "parcel watch src/manifest.json src/options/options.html --host localhost --no-hmr",
-    "build": "parcel build src/manifest.json src/options/options.html --no-source-maps",
+    "build": "npm run clear && parcel build src/manifest.json src/options/options.html --no-source-maps",
     "devweb": "parcel web/index.html --dist-dir web-dist -p 8012",
-    "buildweb": "parcel build web/index.html --dist-dir web-dist --no-source-maps",
+    "buildweb": "npm run clear && parcel build web/index.html --dist-dir web-dist --no-source-maps",
     "clear": "rm -rf .parcel-cache dist web-dist"
   },
   "keywords": [],

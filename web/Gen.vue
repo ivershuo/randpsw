@@ -22,8 +22,10 @@ const isv1 = ref(false)
 const ret = ref('')
 
 async function genPsw(){
-  const md5Salt = md5(salt.value).toString()
-  ret.value = randpsw(psw.value, getDomain(url.value), md5Salt, isv1.value)
+  if (url.value && psw.value){
+    const md5Salt = md5(salt.value).toString()
+    ret.value = randpsw(psw.value, getDomain(url.value), md5Salt, isv1.value)
+  }
 }
 </script>
 
@@ -37,14 +39,14 @@ async function genPsw(){
     <n-input v-model:value="url" placeholder="URL" clearable />
   </n-form-item>
   <n-form-item label="PSW" path="psw">
-    <n-input type="password" v-model:value="psw" placeholder="PSW" show-password-on="click" clearable />
+    <n-input type="password" v-model:value="psw" placeholder="PSW" :input-props="{autocomplete: 'off new-password'}" show-password-on="click" clearable />
   </n-form-item>
   <n-form-item label="SALT" path="salt">
-    <n-input type="password" v-model:value="salt" placeholder="SALT" show-password-on="click" clearable />
+    <n-input type="password" v-model:value="salt" placeholder="SALT" :input-props="{autocomplete: 'off new-password'}" show-password-on="click" clearable />
   </n-form-item>
   <n-form-item label="RET" path="ret">
     <n-input-group>
-      <n-input :value="ret" placeholder="RET" />
+      <n-input :value="ret" placeholder="RET" @focus="genPsw" />
       <copy-btn :text="ret">复制</copy-btn>
     </n-input-group>
   </n-form-item>
